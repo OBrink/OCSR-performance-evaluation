@@ -47,9 +47,9 @@ class TestCesCalculation(unittest.TestCase):
     def test_calculate_cumulative_error_score_unsymmetric_distribution(self,):
         sim_arr = list(np.random.normal(0.4, 0.1, 1000))
         sim_arr += list(np.random.normal(0.5, 0.1, 1000))
-        sim_arr = list(np.random.normal(0.7, 0.1, 4000))
+        sim_arr += list(np.random.normal(0.7, 0.1, 4000))
         sim_arr = [val for val in sim_arr if val >= 0 and val <= 1]
-        self.assertEqual(round(calculate_cumulative_error_score(sim_arr), 0), 30.0)
+        self.assertEqual(round(calculate_cumulative_error_score(sim_arr), 0), 38.0)
 
     def test_calculate_similarity_group_counts(self,):
         similarities = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
