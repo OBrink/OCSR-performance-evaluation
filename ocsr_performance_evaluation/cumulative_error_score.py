@@ -2,23 +2,6 @@ import numpy as np
 from typing import List
 
 
-'''def calculate_cumulative_error_score(
-    similarities: List[float],
-) -> float:
-    """
-    Given a list of similarity values, return the cumulative error score (CES) as an
-    integer.
-
-    Args:
-        similarities (List[float]): List of similarity values
-
-    Returns:
-        float: Cumulative Error Score (CES)
-    """
-    return 100 - (sum(similarities)/len(similarities)) * 100
-'''
-
-
 def calculate_cumulative_error_score(
     similarities: List[float],
 ) -> float:
@@ -36,7 +19,7 @@ def calculate_cumulative_error_score(
         ValueError: If any similarity value is not between 0 and 1
     """
     group_counts = calculate_similarity_group_counts(similarities)
-    error_scores = group_counts * np.arange(100, -1, -1)
+    error_scores = group_counts * (np.arange(100, -1, -1) * np.arange(100, -1, -1))
     return np.sum(error_scores)/len(similarities)
 
 
